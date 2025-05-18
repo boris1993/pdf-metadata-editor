@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace pdf_metadata_editor.ViewModels
+namespace PdfMetadataEditor.ViewModels
 {
     public class ViewModelBase : ObservableObject
     {

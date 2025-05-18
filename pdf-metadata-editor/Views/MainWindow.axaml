@@ -1,10 +1,10 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:pdf_metadata_editor.ViewModels"
+        xmlns:vm="using:PdfMetadataEditor.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="pdf_metadata_editor.Views.MainWindow"
+        x:Class="PdfMetadataEditor.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Width="800"
         Height="450"
@@ -19,18 +19,19 @@
     
     <DockPanel LastChildFill="False">
         <DockPanel Name="LangAndThemeDockPanel" LastChildFill="False" DockPanel.Dock="Top">
+            <TextBlock DockPanel.Dock="Left" Text="{Binding OpenedFileName}" VerticalAlignment="Center" Margin="10, 10, 0, 0" FontWeight="Bold"/>
             <Button DockPanel.Dock="Right" Margin="10, 10, 10, 10">
                 <PathIcon Data="{DynamicResource WeatherSunnyRegular}"/>
             </Button>
-            <Button DockPanel.Dock="Right">
+            <Button DockPanel.Dock="Right" Click="SwitchLanguageButtonClicked">
                 <PathIcon Data="{DynamicResource LocalLanguageRegular}"/>
             </Button>
         </DockPanel>
         
         <DockPanel DockPanel.Dock="Top" Margin="10, 10, 10, 5">
             <!-- <TextBlock Margin="20, 0, 0, 0" VerticalAlignment="Center">filename.pdf</TextBlock>     -->
-            <Button Width="{Binding $parent[DockPanel].Bounds.Width}">
-                <TextBlock HorizontalAlignment="Center">Open file</TextBlock>
+            <Button Width="{Binding $parent[DockPanel].Bounds.Width}" Click="OpenFileButtonClicked">
+                <TextBlock HorizontalAlignment="Center" Text="{Binding OpenPdfFileButtonText}"/>
             </Button>
         </DockPanel>
         

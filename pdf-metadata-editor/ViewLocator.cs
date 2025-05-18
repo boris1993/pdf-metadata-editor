@@ -1,9 +1,9 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using pdf_metadata_editor.ViewModels;
+using PdfMetadataEditor.ViewModels;
 
-namespace pdf_metadata_editor
+namespace PdfMetadataEditor
 {
     public class ViewLocator : IDataTemplate
     {

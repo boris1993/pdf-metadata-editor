@@ -1,12 +1,14 @@
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
-using pdf_metadata_editor.ViewModels;
-using pdf_metadata_editor.Views;
+using PdfMetadataEditor.ViewModels;
+using PdfMetadataEditor.Views;
 
-namespace pdf_metadata_editor
+namespace PdfMetadataEditor
 {
     public partial class App : Application
     {

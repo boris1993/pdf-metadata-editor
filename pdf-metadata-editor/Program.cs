@@ -1,7 +1,7 @@
 ﻿using System;
 using Avalonia;
 
-namespace pdf_metadata_editor
+namespace PdfMetadataEditor
 {
     internal sealed class Program
     {

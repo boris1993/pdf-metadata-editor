@@ -1,4 +1,4 @@
-﻿namespace pdf_metadata_editor;
+﻿namespace PdfMetadataEditor;
 
 public class Constants
 {
