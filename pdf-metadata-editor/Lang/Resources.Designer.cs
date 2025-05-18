@@ -62,9 +62,45 @@ namespace PdfMetadataEditor.Lang {
         /// <summary>
         ///   Looks up a localized string similar to Open PDF File.
         /// </summary>
-        public static string OpenFileText {
+        public static string OpenPDFFile {
             get {
-                return ResourceManager.GetString("OpenFileText", resourceCulture);
+                return ResourceManager.GetString("OpenPDFFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Author.
+        /// </summary>
+        public static string PdfInfoAuthor {
+            get {
+                return ResourceManager.GetString("PdfInfoAuthor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keywords.
+        /// </summary>
+        public static string PdfInfoKeywords {
+            get {
+                return ResourceManager.GetString("PdfInfoKeywords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subject.
+        /// </summary>
+        public static string PdfInfoSubject {
+            get {
+                return ResourceManager.GetString("PdfInfoSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        public static string PdfInfoTitle {
+            get {
+                return ResourceManager.GetString("PdfInfoTitle", resourceCulture);
             }
         }
     }

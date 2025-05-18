@@ -12,7 +12,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
     <AvaloniaResource Include="Assets\**" />
     <EmbeddedResource Update="Lang\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -33,6 +32,7 @@
 
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="11.2.7" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.2.7" />
     <PackageReference Include="Avalonia.Desktop" Version="11.2.7" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="11.2.7" />
     <PackageReference Include="Avalonia.Fonts.Inter" Version="11.2.7" />

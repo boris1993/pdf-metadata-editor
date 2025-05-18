@@ -3,6 +3,8 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Platform.Storage;
 using PdfMetadataEditor.ViewModels;
+using PdfSharp.Pdf;
+using PdfSharp.Pdf.IO;
 
 namespace PdfMetadataEditor.Views
 {
@@ -20,9 +22,9 @@ namespace PdfMetadataEditor.Views
         private async void OpenFileButtonClicked(object sender, RoutedEventArgs e)
         {
             var topLevel = GetTopLevel(this);
-            var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
+            var files = await topLevel!.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
             {
-                Title = "Open PDF file",
+                Title = ((MainWindowViewModel)DataContext!).ButtonTextOpenPdfFile,
                 AllowMultiple = false,
                 FileTypeFilter = new List<FilePickerFileType>([FilePickerFileTypes.Pdf]),
             });
@@ -32,8 +34,7 @@ namespace PdfMetadataEditor.Views
                 // Popup error. This shouldn't happen.
             }
 
-            var file = files[0];
-            ((MainWindowViewModel)DataContext!).OpenedFileName = file.Name;
+            LoadPdfMetadata(files[0]);
         }
 
         private void SwitchLanguageSimplifiedChinese(object sender, RoutedEventArgs e)
@@ -44,6 +45,19 @@ namespace PdfMetadataEditor.Views
         private void SwitchLanguageEnglish(object sender, RoutedEventArgs e)
         {
             ((MainWindowViewModel)DataContext!).SwitchLanguage(LanguageEnUs);
+        }
+
+        private void LoadPdfMetadata(IStorageFile file)
+        {
+            ((MainWindowViewModel)DataContext!).OpenedFileName = file.Name;
+            var path = file.Path.LocalPath;
+
+            if (PdfReader.TestPdfFile(path) == 0)
+            {
+                // Not a PDF file. Popup error.
+            }
+
+            var pdfDocument = PdfReader.Open(path, PdfDocumentOpenMode.Modify);
         }
     }
 }

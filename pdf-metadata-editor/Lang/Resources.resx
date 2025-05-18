@@ -24,7 +24,19 @@
         </value>
     </resheader>
 
-    <data name="OpenFileText" xml:space="preserve">
+    <data name="OpenPDFFile" xml:space="preserve">
         <value>Open PDF File</value>
+    </data>
+    <data name="PdfInfoKeywords" xml:space="preserve">
+        <value>Keywords</value>
+    </data>
+    <data name="PdfInfoSubject" xml:space="preserve">
+        <value>Subject</value>
+    </data>
+    <data name="PdfInfoAuthor" xml:space="preserve">
+        <value>Author</value>
+    </data>
+    <data name="PdfInfoTitle" xml:space="preserve">
+        <value>Title</value>
     </data>
 </root>

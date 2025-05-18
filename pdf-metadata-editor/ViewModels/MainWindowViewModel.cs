@@ -1,18 +1,27 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using PdfMetadataEditor.Lang;
+using PdfSharp.Pdf;
 
 namespace PdfMetadataEditor.ViewModels
 {
     public partial class MainWindowViewModel : ViewModelBase
     {
         private readonly LanguageManager _languageManager;
-        private string _openPDFFileButtonText;
-        private string _openedFileName;
-        
+        private string _buttonTextOpenPdfFile = "";
+        private string _labelTextKeywords = "";
+        private string _labelTextAuthor = "";
+        private string _labelTextSubject = "";
+        private string _labelTextTitle = "";
+
+        private string _openedFileName = "";
+        private string _pdfInfoKeywords = "";
+
         public MainWindowViewModel()
         {
             _languageManager = new LanguageManager();
-            OpenPdfFileButtonText = _languageManager.GetString("OpenFileText");
+            ReloadLocalizedTexts();
         }
 
         public string OpenedFileName
@@ -24,31 +33,117 @@ namespace PdfMetadataEditor.ViewModels
                 {
                     return;
                 }
-            
+
                 _openedFileName = value;
                 OnPropertyChanged();
             }
         }
-        
-        public string OpenPdfFileButtonText
+
+        public string ButtonTextOpenPdfFile
         {
-            get => _openPDFFileButtonText;
+            get => _buttonTextOpenPdfFile;
             set
             {
-                if (_openPDFFileButtonText == value)
+                if (_buttonTextOpenPdfFile == value)
                 {
                     return;
                 }
-                
-                _openPDFFileButtonText = value;
+
+                _buttonTextOpenPdfFile = value;
                 OnPropertyChanged();
             }
         }
 
+        public string LabelTextKeywords
+        {
+            get => _labelTextKeywords;
+            set
+            {
+                if (_labelTextKeywords == value)
+                {
+                    return;
+                }
+
+                _labelTextKeywords = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string LabelTextAuthor
+        {
+            get => _labelTextAuthor;
+            set
+            {
+                if (_labelTextAuthor == value)
+                {
+                    return;
+                }
+
+                _labelTextAuthor = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string LabelTextSubject
+        {
+            get => _labelTextSubject;
+            set
+            {
+                if (_labelTextSubject == value)
+                {
+                    return;
+                }
+
+                _labelTextSubject = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string LabelTextTitle
+        {
+            get => _labelTextTitle;
+            set
+            {
+                if (_labelTextTitle == value)
+                {
+                    return;
+                }
+
+                _labelTextTitle = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string PdfInfoKeywords
+        {
+            get => _pdfInfoKeywords;
+            set
+            {
+                if (_pdfInfoKeywords == value)
+                {
+                    return;
+                }
+
+                _pdfInfoKeywords = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ObservableCollection<PdfMetadata> PdfMetadataList { get; set; } = [];
+
         public void SwitchLanguage(string languageCode)
         {
             _languageManager.SwitchLanguage(languageCode);
-            OpenPdfFileButtonText = _languageManager.GetString("OpenFileText");
+            ReloadLocalizedTexts();
+        }
+
+        private void ReloadLocalizedTexts()
+        {
+            ButtonTextOpenPdfFile = _languageManager.GetString(LocalizationKeys.OpenPdfFile);
+            LabelTextKeywords = _languageManager.GetString(LocalizationKeys.PdfInfoKeywords);
+            LabelTextAuthor = _languageManager.GetString(LocalizationKeys.PdfInfoAuthor);
+            LabelTextSubject = _languageManager.GetString(LocalizationKeys.PdfInfoSubject);
+            LabelTextTitle = _languageManager.GetString(LocalizationKeys.PdfInfoTitle);
         }
     }
 }
