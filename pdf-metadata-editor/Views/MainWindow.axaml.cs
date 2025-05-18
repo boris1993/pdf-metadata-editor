@@ -8,7 +8,9 @@ namespace PdfMetadataEditor.Views
 {
     public partial class MainWindow : Window
     {
-
+        private const string LanguageZhCn = "zh-CN";
+        private const string LanguageEnUs = "en-US";
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -34,12 +36,14 @@ namespace PdfMetadataEditor.Views
             ((MainWindowViewModel)DataContext!).OpenedFileName = file.Name;
         }
 
-        private void SwitchLanguageButtonClicked(object sender, RoutedEventArgs e)
+        private void SwitchLanguageSimplifiedChinese(object sender, RoutedEventArgs e)
         {
-            if (DataContext is MainWindowViewModel viewModel)
-            {
-                viewModel.SwitchLanguage("zh-CN");
-            }
+            ((MainWindowViewModel)DataContext!).SwitchLanguage(LanguageZhCn);
+        }
+        
+        private void SwitchLanguageEnglish(object sender, RoutedEventArgs e)
+        {
+            ((MainWindowViewModel)DataContext!).SwitchLanguage(LanguageEnUs);
         }
     }
 }

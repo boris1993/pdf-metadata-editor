@@ -18,12 +18,19 @@
     </Design.DataContext>
     
     <DockPanel LastChildFill="False">
+        <DockPanel.Resources>
+            <MenuFlyout x:Key="LanguageSelectorFlyout">
+                <MenuItem Header="简体中文" Click="SwitchLanguageSimplifiedChinese"/>
+                <MenuItem Header="English" Click="SwitchLanguageEnglish"/>
+            </MenuFlyout>
+        </DockPanel.Resources>
+        
         <DockPanel Name="LangAndThemeDockPanel" LastChildFill="False" DockPanel.Dock="Top">
             <TextBlock DockPanel.Dock="Left" Text="{Binding OpenedFileName}" VerticalAlignment="Center" Margin="10, 10, 0, 0" FontWeight="Bold"/>
             <Button DockPanel.Dock="Right" Margin="10, 10, 10, 10">
                 <PathIcon Data="{DynamicResource WeatherSunnyRegular}"/>
             </Button>
-            <Button DockPanel.Dock="Right" Click="SwitchLanguageButtonClicked">
+            <Button DockPanel.Dock="Right" Flyout="{StaticResource LanguageSelectorFlyout}">
                 <PathIcon Data="{DynamicResource LocalLanguageRegular}"/>
             </Button>
         </DockPanel>
