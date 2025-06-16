@@ -39,4 +39,19 @@
     <data name="PdfInfoTitle" xml:space="preserve">
         <value>Title</value>
     </data>
+    <data name="PdfMetadataPropertyName" xml:space="preserve">
+        <value>Property Name</value>
+    </data>
+    <data name="PdfMetadataPropertyValue" xml:space="preserve">
+        <value>Property Value</value>
+    </data>
+    <data name="AddPdfMetadataPropertyValue" xml:space="preserve">
+        <value>Add Property Value</value>
+    </data>
+    <data name="SavePDFFile" xml:space="preserve">
+        <value>Save PDF File</value>
+    </data>
+    <data name="ResetChanges" xml:space="preserve">
+        <value>Reset Changes</value>
+    </data>
 </root>

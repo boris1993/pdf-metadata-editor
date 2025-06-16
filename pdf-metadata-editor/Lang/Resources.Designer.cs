@@ -60,6 +60,15 @@ namespace PdfMetadataEditor.Lang {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Property Value.
+        /// </summary>
+        public static string AddPdfMetadataPropertyValue {
+            get {
+                return ResourceManager.GetString("AddPdfMetadataPropertyValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Open PDF File.
         /// </summary>
         public static string OpenPDFFile {
@@ -101,6 +110,42 @@ namespace PdfMetadataEditor.Lang {
         public static string PdfInfoTitle {
             get {
                 return ResourceManager.GetString("PdfInfoTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Property Name.
+        /// </summary>
+        public static string PdfMetadataPropertyName {
+            get {
+                return ResourceManager.GetString("PdfMetadataPropertyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Property Value.
+        /// </summary>
+        public static string PdfMetadataPropertyValue {
+            get {
+                return ResourceManager.GetString("PdfMetadataPropertyValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset Changes.
+        /// </summary>
+        public static string ResetChanges {
+            get {
+                return ResourceManager.GetString("ResetChanges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save PDF File.
+        /// </summary>
+        public static string SavePDFFile {
+            get {
+                return ResourceManager.GetString("SavePDFFile", resourceCulture);
             }
         }
     }

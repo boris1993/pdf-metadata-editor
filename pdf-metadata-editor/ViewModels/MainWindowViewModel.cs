@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using NSwag.Collections;
 using PdfMetadataEditor.Lang;
 using PdfSharp.Pdf;
 
@@ -10,14 +11,23 @@ namespace PdfMetadataEditor.ViewModels
     {
         private readonly LanguageManager _languageManager;
         private string _buttonTextOpenPdfFile = "";
+        private string _buttonTextAddPdfMetadataPropertyValue = "";
+        private string _buttonTextSavePdfFile = "";
+        private string _buttonTextResetChanges = "";
         private string _labelTextKeywords = "";
         private string _labelTextAuthor = "";
         private string _labelTextSubject = "";
         private string _labelTextTitle = "";
+        private string _labelTextPropertyName = "";
+        private string _labelTextPropertyValue = "";
 
         private string _openedFileName = "";
+        private bool _isFileOpened = false;
+        private string _pdfInfoTitle = "";
+        private string _pdfInfoSubject = "";
+        private string _pdfInfoAuthor = "";
         private string _pdfInfoKeywords = "";
-
+        
         public MainWindowViewModel()
         {
             _languageManager = new LanguageManager();
@@ -50,6 +60,51 @@ namespace PdfMetadataEditor.ViewModels
                 }
 
                 _buttonTextOpenPdfFile = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string ButtonTextSavePdfFile
+        {
+            get => _buttonTextSavePdfFile;
+            set
+            {
+                if (_buttonTextSavePdfFile == value)
+                {
+                    return;
+                }
+
+                _buttonTextSavePdfFile = value;
+                OnPropertyChanged();
+            }
+        }
+        
+        public string ButtonTextResetChanges
+        {
+            get => _buttonTextResetChanges;
+            set
+            {
+                if (_buttonTextResetChanges == value)
+                {
+                    return;
+                }
+
+                _buttonTextResetChanges = value;
+                OnPropertyChanged();
+            }
+        }
+        
+        public string ButtonTextAddPdfMetadataPropertyValue
+        {
+            get => _buttonTextAddPdfMetadataPropertyValue;
+            set
+            {
+                if (_buttonTextAddPdfMetadataPropertyValue == value)
+                {
+                    return;
+                }
+
+                _buttonTextAddPdfMetadataPropertyValue = value;
                 OnPropertyChanged();
             }
         }
@@ -113,6 +168,81 @@ namespace PdfMetadataEditor.ViewModels
                 OnPropertyChanged();
             }
         }
+        
+        public string LabelTextPropertyName
+        {
+            get => _labelTextPropertyName;
+            set
+            {
+                if (_labelTextPropertyName == value)
+                {
+                    return;
+                }
+
+                _labelTextPropertyName = value;
+                OnPropertyChanged();
+            }
+        }
+        
+        public string LabelTextPropertyValue
+        {
+            get => _labelTextPropertyValue;
+            set
+            {
+                if (_labelTextPropertyValue == value)
+                {
+                    return;
+                }
+
+                _labelTextPropertyValue = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string PdfInfoTitle
+        {
+            get => _pdfInfoTitle;
+            set
+            {
+                if (_pdfInfoTitle == value)
+                {
+                    return;
+                }
+
+                _pdfInfoTitle = value;
+                OnPropertyChanged();
+            }
+        }
+        
+        public string PdfInfoSubject
+        {
+            get => _pdfInfoSubject;
+            set
+            {
+                if (_pdfInfoSubject == value)
+                {
+                    return;
+                }
+
+                _pdfInfoSubject = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string PdfInfoAuthor
+        {
+            get => _pdfInfoAuthor;
+            set
+            {
+                if (_pdfInfoAuthor == value)
+                {
+                    return;
+                }
+
+                _pdfInfoAuthor = value;
+                OnPropertyChanged();
+            }
+        }
 
         public string PdfInfoKeywords
         {
@@ -129,7 +259,17 @@ namespace PdfMetadataEditor.ViewModels
             }
         }
 
-        public ObservableCollection<PdfMetadata> PdfMetadataList { get; set; } = [];
+        public ObservableDictionary<string, string> PdfMetadataList { get; } = [];
+
+        public bool IsFileOpened
+        {
+            get => _isFileOpened;
+            set
+            {
+                _isFileOpened = value;
+                OnPropertyChanged();
+            }
+        }
 
         public void SwitchLanguage(string languageCode)
         {
@@ -140,10 +280,15 @@ namespace PdfMetadataEditor.ViewModels
         private void ReloadLocalizedTexts()
         {
             ButtonTextOpenPdfFile = _languageManager.GetString(LocalizationKeys.OpenPdfFile);
+            ButtonTextAddPdfMetadataPropertyValue = _languageManager.GetString(LocalizationKeys.AddPdfMetadataPropertyValue);
+            ButtonTextSavePdfFile = _languageManager.GetString(LocalizationKeys.SavePdfFile);
+            ButtonTextResetChanges = _languageManager.GetString(LocalizationKeys.ResetChanges);
             LabelTextKeywords = _languageManager.GetString(LocalizationKeys.PdfInfoKeywords);
             LabelTextAuthor = _languageManager.GetString(LocalizationKeys.PdfInfoAuthor);
             LabelTextSubject = _languageManager.GetString(LocalizationKeys.PdfInfoSubject);
             LabelTextTitle = _languageManager.GetString(LocalizationKeys.PdfInfoTitle);
+            LabelTextPropertyName = _languageManager.GetString(LocalizationKeys.LabelTextPropertyName);
+            LabelTextPropertyValue = _languageManager.GetString(LocalizationKeys.LabelTextPropertyValue);
         }
     }
 }

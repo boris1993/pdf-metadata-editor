@@ -31,12 +31,27 @@
         <value>关键词</value>
     </data>
     <data name="PdfInfoSubject" xml:space="preserve">
-        <value>Subject</value>
+        <value>主题</value>
     </data>
     <data name="PdfInfoAuthor" xml:space="preserve">
-        <value>Author</value>
+        <value>作者</value>
     </data>
     <data name="PdfInfoTitle" xml:space="preserve">
-        <value>Title</value>
+        <value>标题</value>
+    </data>
+    <data name="PdfMetadataPropertyName" xml:space="preserve">
+        <value>属性名称</value>
+    </data>
+    <data name="PdfMetadataPropertyValue" xml:space="preserve">
+        <value>属性内容</value>
+    </data>
+    <data name="AddPdfMetadataPropertyValue" xml:space="preserve">
+        <value>添加自定义属性</value>
+    </data>
+    <data name="SavePDFFile" xml:space="preserve">
+        <value>保存PDF文件</value>
+    </data>
+    <data name="ResetChanges" xml:space="preserve">
+        <value>撤销所有修改</value>
     </data>
 </root>
