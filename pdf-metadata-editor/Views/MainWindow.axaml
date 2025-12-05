@@ -26,8 +26,11 @@
         </DockPanel.Resources>
 
         <DockPanel Name="LangAndThemeDockPanel" LastChildFill="False" DockPanel.Dock="Top">
-            <TextBlock DockPanel.Dock="Left" Text="{Binding OpenedFileName}" VerticalAlignment="Center"
-                       Margin="10, 10, 0, 0" FontWeight="Bold" />
+            <TextBlock DockPanel.Dock="Left" 
+                       Text="{Binding OpenedFileName}" 
+                       VerticalAlignment="Center"
+                       Margin="10, 10, 0, 0" 
+                       FontWeight="Bold" />
             <Button DockPanel.Dock="Right" Margin="10, 10, 10, 10">
                 <PathIcon Data="{DynamicResource WeatherSunnyRegular}" />
             </Button>
@@ -50,27 +53,47 @@
             <Grid ColumnDefinitions="*, *" RowDefinitions="Auto">
                 <DockPanel Grid.Column="0" LastChildFill="False">
                     <DockPanel DockPanel.Dock="Top" LastChildFill="False" Margin="10, 5, 10, 0">
-                        <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                   Margin="0 ,0, 0, 5" Text="{Binding LabelTextTitle}" />
-                        <TextBox DockPanel.Dock="Top" Text="{Binding PdfInfoTitle}" />
+                        <TextBlock DockPanel.Dock="Top" 
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"
+                                   Margin="0 ,0, 0, 5" 
+                                   Text="{Binding LabelTextTitle}" />
+                        <TextBox DockPanel.Dock="Top"
+                                 IsEnabled="{Binding IsFileOpened}"
+                                 Text="{Binding PdfInfoTitle}" />
                     </DockPanel>
 
                     <DockPanel DockPanel.Dock="Top" LastChildFill="False" Margin="10, 5, 10, 0">
-                        <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                   Margin="0 ,0, 0, 5" Text="{Binding LabelTextSubject}" />
-                        <TextBox DockPanel.Dock="Top" Text="{Binding PdfInfoSubject}" />
+                        <TextBlock DockPanel.Dock="Top" 
+                                   HorizontalAlignment="Left" 
+                                   VerticalAlignment="Top"
+                                   Margin="0 ,0, 0, 5" 
+                                   Text="{Binding LabelTextSubject}"/>
+                        <TextBox DockPanel.Dock="Top"
+                                 IsEnabled="{Binding IsFileOpened}"
+                                 Text="{Binding PdfInfoSubject}" />
                     </DockPanel>
 
                     <DockPanel DockPanel.Dock="Top" LastChildFill="False" Margin="10, 5, 10, 0">
-                        <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                   Margin="0 ,0, 0, 5" Text="{Binding LabelTextAuthor}" />
-                        <TextBox DockPanel.Dock="Top" Text="{Binding PdfInfoAuthor}" />
+                        <TextBlock DockPanel.Dock="Top" 
+                                   HorizontalAlignment="Left" 
+                                   VerticalAlignment="Top"
+                                   Margin="0 ,0, 0, 5" 
+                                   Text="{Binding LabelTextAuthor}" />
+                        <TextBox DockPanel.Dock="Top"
+                                 IsEnabled="{Binding IsFileOpened}"
+                                 Text="{Binding PdfInfoAuthor}" />
                     </DockPanel>
 
                     <DockPanel DockPanel.Dock="Top" LastChildFill="False" Margin="10, 5, 10, 0">
-                        <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                   Margin="0 ,0, 0, 5" Text="{Binding LabelTextKeywords}" />
-                        <TextBox DockPanel.Dock="Top" Text="{Binding PdfInfoKeywords}" />
+                        <TextBlock DockPanel.Dock="Top"
+                                   HorizontalAlignment="Left" 
+                                   VerticalAlignment="Top"
+                                   Margin="0 ,0, 0, 5" 
+                                   Text="{Binding LabelTextKeywords}" />
+                        <TextBox DockPanel.Dock="Top"
+                                 IsEnabled="{Binding IsFileOpened}"
+                                 Text="{Binding PdfInfoKeywords}" />
                     </DockPanel>
                 </DockPanel>
 
@@ -109,7 +132,8 @@
                     </DockPanel>
 
                     <DockPanel DockPanel.Dock="Bottom" LastChildFill="True" Margin="10, 5, 10, 0">
-                        <Button Width="{Binding $parent[DockPanel].Bounds.Width}" IsEnabled="False">
+                        <Button Width="{Binding $parent[DockPanel].Bounds.Width}" 
+                                IsEnabled="{Binding IsFileOpened}">
                             <TextBlock HorizontalAlignment="Center"
                                        Text="{Binding ButtonTextAddPdfMetadataPropertyValue}" />
                         </Button>
